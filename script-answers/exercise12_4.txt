@@ -1,0 +1,121 @@
+Script started on 2023-11-23 14:16:29+03:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="172" LINES="41"]
+[?2004h]0;root@LAPTOP-NH5OAG5J: ~/part12-containers-applicationsroot@LAPTOP-NH5OAG5J:~/part12-containers-applications# docker container ls -a
+[?2004lCONTAINER ID   IMAGE         COMMAND    CREATED        STATUS                      PORTS     NAMES
+27c3b8d593fc   ubuntu        "bash"     14 hours ago   Exited (0) 51 seconds ago             reverent_carver
+4311384a3eb1   hello-world   "/hello"   14 hours ago   Exited (0) 14 hours ago               upbeat_hugle
+[?2004h]0;root@LAPTOP-NH5OAG5J: ~/part12-containers-applicationsroot@LAPTOP-NH5OAG5J:~/part12-containers-applications# docker start -i reverent_carver
+[?2004l[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# ls
+[?2004l[0m[01;36mbin[0m  [01;34mboot[0m  [01;34mdev[0m  [01;34metc[0m  [01;34mhome[0m  [01;36mlib[0m  [01;36mlib32[0m  [01;36mlib64[0m  [01;36mlibx32[0m  [01;34mmedia[0m  [01;34mmnt[0m  [01;34mopt[0m  [01;34mproc[0m  [01;34mroot[0m  [01;34mrun[0m  [01;36msbin[0m  [01;34msrv[0m  [01;34msys[0m  [30;42mtmp[0m  [01;34musr[0m  [01;34mvar[0m
+[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# curl -sL https://deb.nodesource.com/setup_16.x | bash
+[?2004l
+[1m[31m================================================================================(B[m
+[1m[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓(B[m
+[1m[31m================================================================================(B[m
+
+  [1m[33m                         [4mSCRIPT DEPRECATION WARNING(B[m                    (B[m
+
+  
+  This script, located at [1mhttps://deb.nodesource.com/setup_X(B[m, used to
+  install Node.js is deprecated now and will eventually be made inactive.
+
+  Please visit the NodeSource [1mdistributions(B[m Github and follow the
+  instructions to migrate your repo.
+  [4m[32m[1mhttps://github.com/nodesource/distributions(B[m
+
+  The [1mNodeSource(B[m Node.js Linux distributions GitHub repository contains
+  information about which versions of Node.js and which Linux distributions
+  are supported and how to install it.
+  [4m[32m[1mhttps://github.com/nodesource/distributions(B[m
+
+
+                          [4m[1m[33mSCRIPT DEPRECATION WARNING(B[m
+
+[1m[31m================================================================================(B[m
+[1m[31m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓(B[m
+[1m[31m================================================================================(B[m
+
+[36m[1mTO AVOID THIS WAIT MIGRATE THE SCRIPT(B[m
+Continuing in 60 seconds (press Ctrl-C to abort) ...
+
+
+## Installing the NodeSource Node.js 16.x repo...
+
+
+## Populating apt-get cache...
+
++ apt-get update
+0% [Working]            Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+0% [Waiting for headers]                        Hit:2 http://archive.ubuntu.com/ubuntu jammy InRelease
+                        0% [Working]0% [Connecting to archive.ubuntu.com (185.125.190.36)]                                                      0% [Waiting for headers]                        Hit:3 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+0% [Connecting to archive.ubuntu.com]                                     0% [Waiting for headers]                        Hit:4 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+                        0% [Working]20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 40%Reading package lists... 65%Reading package lists... 65%Reading package lists... 65%Reading package lists... 65%Reading package lists... 71%Reading package lists... 71%Reading package lists... 78%Reading package lists... 78%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 84%Reading package lists... 84%Reading package lists... 84%Reading package lists... 84%Reading package lists... 84%Reading package lists... 88%Reading package lists... 88%Reading package lists... 95%Reading package lists... 95%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+
+## Installing packages required for setup: lsb-release gnupg...
+
++ apt-get install -y lsb-release gnupg > /dev/null 2>&1
+
+## Confirming "jammy" is supported...
+
++ curl -sLf -o /dev/null 'https://deb.nodesource.com/node_16.x/dists/jammy/Release'
+
+## Adding the NodeSource signing key to your keyring...
+
++ curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null
+
+## Creating apt sources list file for the NodeSource Node.js 16.x repo...
+
++ echo 'deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main' > /etc/apt/sources.list.d/nodesource.list
++ echo 'deb-src [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main' >> /etc/apt/sources.list.d/nodesource.list
+
+## Running `apt-get update` for you...
+
++ apt-get update
+0% [Working]            Hit:1 http://security.ubuntu.com/ubuntu jammy-security InRelease
+0% [Waiting for headers] [Waiting for headers]                                              Get:2 https://deb.nodesource.com/node_16.x jammy InRelease [4583 B]
+0% [Waiting for headers] [2 InRelease 0 B/4583 B 0%]                                                    0% [Waiting for headers]0% [Waiting for headers]                        Hit:3 http://archive.ubuntu.com/ubuntu jammy InRelease
+                        0% [Working]0% [Waiting for headers]                        Get:4 https://deb.nodesource.com/node_16.x jammy/main amd64 Packages [776 B]
+0% [Waiting for headers]0% [4 Packages store 0 B] [Waiting for headers]                                               0% [Waiting for headers]0% [Waiting for headers]                        Hit:5 http://archive.ubuntu.com/ubuntu jammy-updates InRelease
+0% [Connecting to archive.ubuntu.com]                                     0% [Waiting for headers]                        Hit:6 http://archive.ubuntu.com/ubuntu jammy-backports InRelease
+                        0% [Working]100% [Working]              Fetched 5359 B in 1s (3785 B/s)
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 40%Reading package lists... 64%Reading package lists... 64%Reading package lists... 65%Reading package lists... 65%Reading package lists... 71%Reading package lists... 71%Reading package lists... 75%Reading package lists... 78%Reading package lists... 78%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 84%Reading package lists... 84%Reading package lists... 88%Reading package lists... 88%Reading package lists... 95%Reading package lists... 95%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+
+## Run `[1msudo apt-get install -y nodejs(B[m` to install Node.js 16.x and npm
+## You may also need development tools to build native addons:
+     sudo apt-get install gcc g++ make
+## To install the Yarn package manager, run:
+     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+     echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+     sudo apt-get update && sudo apt-get install yarn
+
+
+[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# [Knode -v
+[?2004lbash: node: command not found
+[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# apt install -y nodejs
+[?2004lReading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 6%Reading package lists... 40%Reading package lists... 62%Reading package lists... 64%Reading package lists... 64%Reading package lists... 65%Reading package lists... 65%Reading package lists... 71%Reading package lists... 71%Reading package lists... 78%Reading package lists... 78%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 83%Reading package lists... 84%Reading package lists... 84%Reading package lists... 88%Reading package lists... 88%Reading package lists... 95%Reading package lists... 95%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... 54%Building dependency tree... Done
+Reading state information... 0% Reading state information... 2%Reading state information... Done
+The following NEW packages will be installed:
+  nodejs
+0 upgraded, 1 newly installed, 0 to remove and 12 not upgraded.
+Need to get 27.2 MB of archives.
+After this operation, 128 MB of additional disk space will be used.
+[33m0% [Working][0m            Get:1 https://deb.nodesource.com/node_16.x jammy/main amd64 nodejs amd64 16.20.2-deb-1nodesource1 [27.2 MB]
+[33m0% [1 nodejs 0 B/27.2 MB 0%][0m[33m7% [1 nodejs 2276 kB/27.2 MB 8%][0m[33m12% [1 nodejs 4144 kB/27.2 MB 15%][0m[33m17% [1 nodejs 5798 kB/27.2 MB 21%][0m[33m23% [1 nodejs 7830 kB/27.2 MB 29%][0m[33m29% [1 nodejs 9796 kB/27.2 MB 36%][0m[33m31% [1 nodejs 10.7 MB/27.2 MB 39%][0m[33m35% [1 nodejs 11.9 MB/27.2 MB 44%][0m[33m47% [1 nodejs 15.9 MB/27.2 MB 59%][0m[33m55% [1 nodejs 18.5 MB/27.2 MB 68%][0m[33m61% [1 nodejs 20.8 MB/27.2 MB 77%][0m[33m65% [1 nodejs 21.9 MB/27.2 MB 81%][0m[33m74% [1 nodejs 25.0 MB/27.2 MB 92%]                                                                                                                             3952 kB/s 0s[0m[33m100% [Working]                                                                                                                                                 3952 kB/s 0s[0m                                                                                                                                                                           Fetched 27.2 MB in 7s (4029 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+
+7[0;40r8[1ASelecting previously unselected package nodejs.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 6041 files and directories currently installed.)
+Preparing to unpack .../nodejs_16.20.2-deb-1nodesource1_amd64.deb ...
+7[41;0f[42m[30mProgress: [  0%][49m[39m [......................................................................................................................................................] 87[41;0f[42m[30mProgress: [ 20%][49m[39m [##############################........................................................................................................................] 8Unpacking nodejs (16.20.2-deb-1nodesource1) ...
+7[41;0f[42m[30mProgress: [ 40%][49m[39m [############################################################..........................................................................................] 8Setting up nodejs (16.20.2-deb-1nodesource1) ...
+7[41;0f[42m[30mProgress: [ 60%][49m[39m [##########################################################################################............................................................] 87[41;0f[42m[30mProgress: [ 80%][49m[39m [########################################################################################################################..............................] 8
+7[0;41r8[1A[J[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# node -v
+[?2004lv16.20.2
+[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# node /usr/src/app/index.js
+[?2004lHello World
+[?2004h]0;root@27c3b8d593fc: /root@27c3b8d593fc:/# [Kexit
+[?2004lexit
+[?2004h]0;root@LAPTOP-NH5OAG5J: ~/part12-containers-applicationsroot@LAPTOP-NH5OAG5J:~/part12-containers-applications# exit
+[?2004lexit
+
+Script done on 2023-11-23 14:20:51+03:00 [COMMAND_EXIT_CODE="0"]
