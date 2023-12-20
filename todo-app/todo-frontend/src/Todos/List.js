@@ -6,7 +6,7 @@ const TodoList = ({ todos, deleteTodo, completeTodo }) => {
 
   return (
     <>
-      {todos.map(todo => <Todo key={todo.TodoList} deleteTodo={deleteTodo} compeleteTodo={completeTodo} />).reduce((acc, cur) => [...acc, <hr />, cur], [])}
+      {todos.map(todo => <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} compeleteTodo={completeTodo} />).reduce((acc, cur) => [...acc, <hr />, cur], [])}
     </>
   )
 }
