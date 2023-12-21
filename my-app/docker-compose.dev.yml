@@ -1,0 +1,40 @@
+version: '3.8' 
+
+services:
+  client:
+    image: client-dev
+    build:
+      context: ./client/
+      dockerfile: dev.Dockerfile
+    environment:
+      - REACT_APP_SERVER_URL=http://localhost:8080/api/
+    container_name: client-dev
+  server:
+    image: server-dev
+    build:
+      context: ./server/
+      dockerfile: dev.Dockerfile
+    environment:
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+    container_name: server-dev
+  mongo:
+    image: mongo
+    ports:
+      - 3456:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: the_database
+    volumes: 
+      - ./server/mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./server/mongo_data:/data/db
+  nginx:
+      image: nginx:1.20.1
+      volumes:
+        - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      ports:
+        - 8080:80
+      container_name: reverse-proxy
+      depends_on:
+        - client
+        - server
